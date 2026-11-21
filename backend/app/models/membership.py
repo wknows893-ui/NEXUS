@@ -1,0 +1,26 @@
+from app.core.base import Base
+from sqlalchemy.orm import Mapped,mapped_column
+from sqlalchemy import ForeignKey,String,DateTime
+from datetime import datetime,UTC
+from typing import Optional
+class Membership(Base):
+
+    __tablename__ = "memberships"
+    id : Mapped[int] = mapped_column(
+        primary_key=True
+    )
+    user_id : Mapped[int] = mapped_column(
+        unique=True,
+        nullable=False
+    )
+    organization_id : Mapped[int] = mapped_column(
+        ForeignKey("organizations.id") 
+    )
+    role : Mapped[Optional[str]] = mapped_column(
+        String(50),
+        nullable=False
+    )
+    joined_at : Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        default = lambda : datetime.now(UTC)
+    )
