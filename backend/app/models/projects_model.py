@@ -37,6 +37,6 @@ class Project(Base) :
         default = lambda : datetime.now(UTC),
         onupdate= datetime.now(UTC)
     )
-    deadline = Mapped[datetime] = mapped_column(
+    deadline : Mapped[datetime] = mapped_column(
         DateTime(timezone=True)
     )

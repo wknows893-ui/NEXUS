@@ -1,4 +1,3 @@
-from .user_model import User
+from .users_model import User
 from .organizations_model import Organization
-from .projects_model import Project
-from .membership_model import Membership
+from .memberships_model import Membership

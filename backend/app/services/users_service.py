@@ -1,8 +1,8 @@
-from app.schemas.user_schema import UserCreate,UserResponse,UserUpdate
+from app.schemas.users_schema import UserCreate,UserResponse,UserUpdate
 from sqlalchemy.orm import Session
 from app.core.security import hash_password,verify_password
-from app.models.user_model import User
-from app.repos.user_repo import finduser_byemail,save,finduser_byid,save_n_ref_user
+from app.models.users_model import User
+from app.repos.users_repo import finduser_byemail,save,finduser_byid,save_n_ref_user
 from fastapi import HTTPException,status
 
 def existing_user_check(uss : UserCreate,db : Session) : 

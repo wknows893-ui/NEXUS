@@ -7,12 +7,12 @@ class Membership(Base):
 
     __tablename__ = "memberships"
 
-    __table_args__ = UniqueConstraint("users.id","organizations.id")
+    __table_args__ = (UniqueConstraint("user_id","organization_id"),)
     id : Mapped[int] = mapped_column(
         primary_key=True
     )
     user_id : Mapped[int] = mapped_column(
-        unique=True,
+        ForeignKey("users.id"),
         nullable=False
     )
     organization_id : Mapped[int] = mapped_column(

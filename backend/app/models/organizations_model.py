@@ -12,6 +12,7 @@ class Organization(Base):
     )
     name : Mapped[str] = mapped_column(
         String(50),
+        unique=True,
         nullable=False
     )
     slug : Mapped[str] = mapped_column(
